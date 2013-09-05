@@ -9,11 +9,14 @@ using Microsoft.Phone.Shell;
 using WorkoutLog2.Resources;
 using WorkoutLog2.ViewModels;
 
+
 namespace WorkoutLog2
 {
     public partial class App : Application
     {
         private static MainViewModel viewModel = null;
+
+
         public static int index1;
         public static int index2; 
         /// <summary>

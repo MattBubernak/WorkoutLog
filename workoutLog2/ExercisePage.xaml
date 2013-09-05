@@ -35,9 +35,9 @@
             <TextBox Name="inputBox3" Text="{Binding Weight}" Margin="210,56,0,411" TextChanged="Update_Weight" ></TextBox>
             
             <TextBlock Margin="10,127,219,-113" Style="{StaticResource PhoneTextLargeStyle}">Reps:</TextBlock>
-            <TextBox Name="inputBox4" Text="{Binding Sets}" Margin="97,120,246,345" ></TextBox>
+            <TextBox Name="inputBox4" Text="{Binding Sets}" Margin="97,190,246,275" ></TextBox>
             <TextBlock Margin="10,190,359,-176" Style="{StaticResource PhoneTextLargeStyle}">Sets:</TextBlock>
-            <TextBox Name="inputBox5" Text="{Binding Reps}" Margin="97,180,246,289" ></TextBox>
+            <TextBox Name="inputBox5" Text="{Binding Reps}" Margin="97,122,246,347" ></TextBox>
 
           <Button Name="IncreaseReps" Margin="215,120,170,347" Click ="Increase_Reps" >+</Button>
           <Button Name="DecreaseReps" Margin="281,120,104,347" Click ="Decrease_Reps">-</Button>

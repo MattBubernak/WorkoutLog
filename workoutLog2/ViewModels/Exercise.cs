@@ -74,7 +74,7 @@ namespace WorkoutLog2.ViewModels
                 if (value != _weight)
                 {
                     _weight = value;
-                    NotifyPropertyChanged("Name");
+                    NotifyPropertyChanged("Weight");
                 }
             }
         }
