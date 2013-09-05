@@ -90,6 +90,24 @@ namespace WorkoutLog2
                 App.ViewModel.Items[App.index1].Exercises[App.index2].Weight = int.Parse(inputBox3.Text);
             }
         }
+
+        private void Confirm_Activity(object sender, EventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void Delete_Activity(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rename_keydown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key.ToString() == "Enter")
+            {
+                this.Focus();
+            }
+        }
        
        
 

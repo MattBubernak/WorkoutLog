@@ -29,20 +29,20 @@
 
         <!--ContentPanel contains details text. Place additional content here-->
         <Grid x:Name="ContentPanel" Margin="12,0" Grid.Row="1">
-            <TextBlock Margin="10,10,219,4" Style="{StaticResource PhoneTextLargeStyle}">Exercise Name:</TextBlock>
-            <TextBox Name="inputBox2" Text="{Binding Name}" Margin="210,0,0,540" TextChanged="Update_Name" ></TextBox>
+            <TextBlock Name="nametext" Margin="10,10,219,4" Style="{StaticResource PhoneTextLargeStyle}">Exercise Name:</TextBlock>
+            <TextBox Name="inputBox2" Text="{Binding Name}" Margin="210,2,0,466" TextChanged="Update_Name" KeyDown="rename_keydown"></TextBox>
             <TextBlock Margin="10,67,219,-53" Style="{StaticResource PhoneTextLargeStyle}">Weight:</TextBlock>
-            <TextBox Name="inputBox3" Text="{Binding Weight}" Margin="210,55,0,485" TextChanged="Update_Weight" ></TextBox>
+            <TextBox Name="inputBox3" Text="{Binding Weight}" Margin="210,56,0,411" TextChanged="Update_Weight" ></TextBox>
             
             <TextBlock Margin="10,127,219,-113" Style="{StaticResource PhoneTextLargeStyle}">Reps:</TextBlock>
-            <TextBox Name="inputBox4" Text="{Binding Sets}" Margin="97,178,246,362" ></TextBox>
+            <TextBox Name="inputBox4" Text="{Binding Sets}" Margin="97,120,246,345" ></TextBox>
             <TextBlock Margin="10,190,359,-176" Style="{StaticResource PhoneTextLargeStyle}">Sets:</TextBlock>
-            <TextBox Name="inputBox5" Text="{Binding Reps}" Margin="97,118,246,422" ></TextBox>
+            <TextBox Name="inputBox5" Text="{Binding Reps}" Margin="97,180,246,289" ></TextBox>
 
-          <Button Name="IncreaseReps" Margin="210,116,175,417" Click ="Increase_Reps" >+</Button>
-          <Button Name="DecreaseReps" Margin="281,116,104,417" Click ="Decrease_Reps">-</Button>
-          <Button Name="IncreaseSets" Margin="210,171,175,362" Click ="Increase_Sets">+</Button>
-          <Button Name="DecreaseSets" Margin="281,171,104,362" Click ="Decrease_Sets">-</Button>
+          <Button Name="IncreaseReps" Margin="215,120,170,347" Click ="Increase_Reps" >+</Button>
+          <Button Name="DecreaseReps" Margin="281,120,104,347" Click ="Decrease_Reps">-</Button>
+          <Button Name="IncreaseSets" Margin="215,180,170,289" Click ="Increase_Sets">+</Button>
+          <Button Name="DecreaseSets" Margin="281,180,104,289" Click ="Decrease_Sets">-</Button>
       </Grid>
         
         <!--Uncomment to see an alignment grid to help ensure your controls are
@@ -63,5 +63,16 @@
 
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>!-->
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="True" IsVisible="True">
+
+            <shell:ApplicationBarIconButton IconUri="/Images/save.png" Text="Confirm" Click="Confirm_Activity"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/delete.png" Text="Delete" Click="Delete_Activity"/>
+
+
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>

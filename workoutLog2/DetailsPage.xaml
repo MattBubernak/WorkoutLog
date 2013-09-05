@@ -30,7 +30,7 @@
         <!--ContentPanel contains details text. Place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <TextBlock Margin="10,10,219,4" Style="{StaticResource PhoneTextLargeStyle}">Workout Name:</TextBlock>
-            <TextBox Name="inputBox" Text="{Binding Title}" Margin="221,0,0,460" TextChanged="Rename_Workout"></TextBox>
+            <TextBox Name="inputBox" Text="{Binding Title}" Margin="221,0,0,460" TextChanged="Rename_Workout" KeyDown="remove_focus_name"></TextBox>
 
             <Grid x:Name="ExercisePanel" Margin="12,72,12,0">
                 <phone:LongListSelector x:Name="ExerciseLongListSelector" Margin="0,0,-12,0" ItemsSource="{Binding Exercises}" SelectionChanged="ExerciseLongListSelector_SelectionChanged">

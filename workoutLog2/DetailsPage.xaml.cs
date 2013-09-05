@@ -33,10 +33,9 @@ namespace WorkoutLog2
                 string selectedIndex = "";
                 if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
                 {
-                    Debug.WriteLine(selectedIndex);
-                    int index = int.Parse(selectedIndex);
-                    Debug.WriteLine(index);
-                    DataContext = App.ViewModel.Items[index];
+                    App.index1 = int.Parse(selectedIndex);
+                    Debug.WriteLine(App.index1);
+                    DataContext = App.ViewModel.Items[App.index1];
                 }
                 else
                 {
@@ -47,46 +46,27 @@ namespace WorkoutLog2
 
         private void Rename_Workout(object sender, TextChangedEventArgs e)
         {
-            string selectedIndex = "";
-            if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
-            {
-                int index = int.Parse(selectedIndex);
-                DataContext = App.ViewModel.Items[index];
-                App.ViewModel.Items[index].Title = this.inputBox.Text;
-            }
-            
+                DataContext = App.ViewModel.Items[App.index1];
+                App.ViewModel.Items[App.index1].Title = this.inputBox.Text;
         }
 
         private void Add_Workout(object sender, EventArgs e)
         {
-            string selectedIndex = "";
-            if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
-            {
-                int index = int.Parse(selectedIndex);
-                DataContext = App.ViewModel.Items[index];
-                App.ViewModel.Items[index].Exercises.Add(new Exercise() { ID = (App.ViewModel.Items[index].Exercises.Count).ToString() });
-
-            }
+                DataContext = App.ViewModel.Items[App.index1];
+                App.ViewModel.Items[App.index1].Exercises.Add(new Exercise() { ID = (App.ViewModel.Items[App.index1].Exercises.Count).ToString() });
         }
 
         private void Delete_Workout(object sender, EventArgs e)
         {
-            string selectedIndex = "";
-
-            if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
-            {
-                int index = int.Parse(selectedIndex);
-                DataContext = App.ViewModel.Items[index];
-                App.ViewModel.Items.Remove(App.ViewModel.Items[index]);
+                DataContext = App.ViewModel.Items[App.index1];
+                App.ViewModel.Items.Remove(App.ViewModel.Items[App.index1]);
                 GC.Collect();
                 Debug.WriteLine((App.ViewModel.Items.Count - 1).ToString());
-                for (int i = index; i < App.ViewModel.Items.Count; i++)
+                for (int i = App.index1; i < App.ViewModel.Items.Count; i++)
                 {
                     App.ViewModel.Items[i].ID = (Convert.ToInt32(App.ViewModel.Items[i].ID) - 1).ToString();
                 }
-                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
-
-            }
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));  
         }
 
         private void ExerciseLongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -107,6 +87,14 @@ namespace WorkoutLog2
 
             // Reset selected item to null (no selection)
             ExerciseLongListSelector.SelectedItem = null;
+        }
+
+        private void remove_focus_name(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key.ToString() == "Enter")
+            {
+                this.Focus();
+            }
         }
 
         
