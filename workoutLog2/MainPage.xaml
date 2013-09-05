@@ -61,8 +61,8 @@
         <!--Panorama item three-->
         <phone:PanoramaItem Header="About">
             <Grid>
-                <TextBlock Text="Version: .01&#x0a;Author: Matt Bubernak&#x0a;Contact: BirdBucketProductions@gmail.com&#x0a;" Height="483" VerticalAlignment="Bottom"></TextBlock>
-
+                <TextBlock Text="Version: .01&#x0a;Author: Matt Bubernak&#x0a;Version: .02" Height="483" VerticalAlignment="Bottom"></TextBlock>
+                <Button Margin="0,43,0,333" Click="send_email">Email BirdBucket Productions</Button>
                 <Image Height="75" Width="75" Source="/Images/bblogo.png" Margin="167,109,178,267"></Image>
             </Grid>
         </phone:PanoramaItem>

@@ -10,7 +10,7 @@ using Microsoft.Phone.Shell;
 using WorkoutLog2.Resources;
 using WorkoutLog2.ViewModels;
 using System.Diagnostics;
-
+using Microsoft.Phone.Tasks;
 namespace WorkoutLog2
 {
     public partial class MainPage : PhoneApplicationPage
@@ -65,6 +65,12 @@ namespace WorkoutLog2
         private void Continue_Workout_Button_Click_1(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (App.ViewModel.Items.Count - 1).ToString(), UriKind.Relative));
+        }
+
+        private void send_email(object sender, RoutedEventArgs e)
+        {
+            var task = new EmailComposeTask { To = "BirdBucketProductions@gmail.com" };
+            task.Show();
         }
 
         // Sample code for building a localized ApplicationBar
