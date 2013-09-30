@@ -70,6 +70,7 @@
 
             <shell:ApplicationBarIconButton IconUri="/Images/add.png" Text="Add Activity" Click="Add_Workout"/>
             <shell:ApplicationBarIconButton IconUri="/Images/delete.png" Text="Delete" Click="Delete_Workout"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/feature.email.png" Text="Email" Click="Email_Workout"/>
 
 
 

@@ -10,6 +10,8 @@ using Microsoft.Phone.Shell;
 using WorkoutLog2.Resources;
 using WorkoutLog2.ViewModels;
 using System.Diagnostics;
+using System.IO.IsolatedStorage;
+using Microsoft.Phone.Tasks;
 
 
 namespace WorkoutLog2
@@ -54,6 +56,11 @@ namespace WorkoutLog2
         {
                 DataContext = App.ViewModel.Items[App.index1];
                 App.ViewModel.Items[App.index1].Exercises.Add(new Exercise() { ID = (App.ViewModel.Items[App.index1].Exercises.Count).ToString() });
+                App.index2 = App.ViewModel.Items[App.index1].Exercises.Count -1;
+                Debug.WriteLine("Sencing App.index1 and App.index2:");
+                Debug.WriteLine(App.index1);
+                Debug.WriteLine(App.index2); 
+                NavigationService.Navigate(new Uri("/ExercisePage.xaml?selectedItem=" + App.index1 + "&index=" + App.index2, UriKind.Relative));
         }
 
         private void Delete_Workout(object sender, EventArgs e)
@@ -66,24 +73,25 @@ namespace WorkoutLog2
                 {
                     App.ViewModel.Items[i].ID = (Convert.ToInt32(App.ViewModel.Items[i].ID) - 1).ToString();
                 }
-                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));  
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
         private void ExerciseLongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string selectedIndex = "";
-            int da = 0;
+            App.index2 = 0;
             if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
             {
-                  da = int.Parse(selectedIndex);
+                  App.index2 = int.Parse(selectedIndex);
             }
             // If selected item is null (no selection) do nothing
             if (ExerciseLongListSelector.SelectedItem == null)
                 return;
             Debug.WriteLine("Sending over this Exercise ID:" + (ExerciseLongListSelector.SelectedItem as Exercise).ID);
-
-            // Navigate to the new page
-            NavigationService.Navigate(new Uri("/ExercisePage.xaml?selectedItem=" + (ExerciseLongListSelector.SelectedItem as Exercise).ID + "&index=" + da, UriKind.Relative));
+            App.index2 = int.Parse((ExerciseLongListSelector.SelectedItem as Exercise).ID);
+            Debug.WriteLine(App.index2);
+                // Navigate to the new page
+            NavigationService.Navigate(new Uri("/ExercisePage.xaml?selectedItem=" + App.index1 + "&index=" + App.index2, UriKind.Relative));
 
             // Reset selected item to null (no selection)
             ExerciseLongListSelector.SelectedItem = null;
@@ -95,6 +103,18 @@ namespace WorkoutLog2
             {
                 this.Focus();
             }
+        }
+
+        private void Email_Workout(object sender, EventArgs e)
+        {
+            string bodyString = "Lifts: \n";
+            for (int i = 0; i < App.viewModel.Items[App.index1].Exercises.Count; i++)
+            {
+                bodyString += "\n" + App.viewModel.Items[App.index1].Exercises[i].Name + ": " + App.viewModel.Items[App.index1].Exercises[i].Reps + " Reps " + App.viewModel.Items[App.index1].Exercises[i].Sets + " Sets " + App.viewModel.Items[App.index1].Exercises[i].Weight + " Lbs " ;
+            }
+            bodyString += "\n\nThis workout was logged using WorkoutLog by BirdBucket Productions"; 
+            var task = new EmailComposeTask {  Subject = ("Workout Report for " + App.viewModel.Items[App.index1].Title + ", " + App.viewModel.Items[App.index1].DateCreated) , Body = bodyString};
+            task.Show();
         }
 
         

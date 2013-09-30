@@ -29,23 +29,24 @@ namespace WorkoutLog2
         // When page is navigated to set data context to selected item in list
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            //Debug.WriteLine("Settings data context to: " + App.index1 + " " + App.index2);
+            //DataContext = App.ViewModel.Items[App.index1].Exercises[App.index2];
             if (DataContext == null)
             {
                 string selectedIndex = "";
                // int index1 =  NavigationContext.QueryString.TryGetValue("index", out index1)
                 string index1string;
-                int index1 = 0;
+                int exindex = 0;
                 if (NavigationContext.QueryString.TryGetValue("index", out index1string))
                 {
-                    index1 = int.Parse(index1string);
-                    App.index1 = index1;
+                    exindex = int.Parse(index1string);
+                    App.index2 = exindex;
                 }
                 if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
                 {
-
-                    int index2 = int.Parse(selectedIndex);
-                    App.index2 = index2; 
-                    DataContext = App.ViewModel.Items[index1].Exercises[index2];
+                    int workoutindex = int.Parse(selectedIndex);
+                    App.index1 = workoutindex;
+                    DataContext = App.ViewModel.Items[workoutindex].Exercises[exindex];
                 }
                 else
                 {
@@ -98,7 +99,15 @@ namespace WorkoutLog2
 
         private void Delete_Activity(object sender, EventArgs e)
         {
-
+            //DataContext = App.ViewModel.Items[App.index1];
+            App.ViewModel.Items[App.index1].Exercises.Remove(App.ViewModel.Items[App.index1].Exercises[App.index2]);
+            GC.Collect();
+            for (int i = App.index2; i < App.ViewModel.Items[App.index1].Exercises.Count; i++)
+            {
+                App.ViewModel.Items[App.index1].Exercises[i].ID = (Convert.ToInt32(App.ViewModel.Items[App.index1].Exercises[i].ID) - 1).ToString();
+            }
+            //NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + App.index1, UriKind.Relative));     
         }
 
         private void rename_keydown(object sender, System.Windows.Input.KeyEventArgs e)

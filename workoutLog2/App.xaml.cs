@@ -8,13 +8,13 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WorkoutLog2.Resources;
 using WorkoutLog2.ViewModels;
-
+using System.IO.IsolatedStorage;
 
 namespace WorkoutLog2
 {
     public partial class App : Application
     {
-        private static MainViewModel viewModel = null;
+        public static MainViewModel viewModel = null;
 
 
         public static int index1;
@@ -25,13 +25,22 @@ namespace WorkoutLog2
         /// <returns>The MainViewModel object.</returns>
         public static MainViewModel ViewModel
         {
+            
             get
             {
                 // Delay creation of the view model until necessary
-                if (viewModel == null)
-                    viewModel = new MainViewModel();
-
+                
+                    if (viewModel == null)
+                    {
+                        viewModel = new MainViewModel();
+                    }
+                    
                 return viewModel;
+            }
+
+            set
+            {
+                ViewModel = value;
             }
         }
 
@@ -83,6 +92,18 @@ namespace WorkoutLog2
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+             if (IsolatedStorageSettings.ApplicationSettings.Contains("data"))
+                {
+                    Debug.WriteLine("Found Data");
+                    MainViewModel nud;
+                   // nud = PhoneApplicationService.Current.State["food"] as MainViewModel;
+                   nud = (MainViewModel)IsolatedStorageSettings.ApplicationSettings["data"];
+                   //RootFrame.DataContext = ViewModel;
+                   // int[] nud2 = (int[])IsolatedStorageSettings.ApplicationSettings["arr"];
+                 //   Debug.WriteLine(nud2[2]);
+                    Debug.WriteLine(nud.Items.Count);
+                }
+                
         }
 
         // Code to execute when the application is activated (brought to foreground)
@@ -90,6 +111,8 @@ namespace WorkoutLog2
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
             // Ensure that application state is restored appropriately
+            //Debug.WriteLine(IsolatedStorageSettings.ApplicationSettings[);
+
             if (!App.ViewModel.IsDataLoaded)
             {
                 App.ViewModel.LoadData();
@@ -100,13 +123,49 @@ namespace WorkoutLog2
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
-            // Ensure that required application state is persisted here.
+            IsolatedStorageSettings.ApplicationSettings.Clear();
+            //Add number of Workouts
+            IsolatedStorageSettings.ApplicationSettings.Add("numOfWorkouts", App.ViewModel.Items.Count);
+            //Add each Workout
+            for (int i = 0; i < App.ViewModel.Items.Count; i++)
+            {
+                string[] arr = new string[] { App.ViewModel.Items[i].DateCreated, App.ViewModel.Items[i].Title, App.ViewModel.Items[i].Exercises.Count.ToString() };
+                IsolatedStorageSettings.ApplicationSettings.Add("workout" + i.ToString(), arr);
+                for (int j = 0; j < App.ViewModel.Items[i].Exercises.Count; j++)
+                {
+                    string[] arr2 = new string[] { App.ViewModel.Items[i].Exercises[j].Name, App.ViewModel.Items[i].Exercises[j].Reps.ToString(), App.ViewModel.Items[i].Exercises[j].Sets.ToString(), App.ViewModel.Items[i].Exercises[j].Weight.ToString() };
+                    IsolatedStorageSettings.ApplicationSettings.Add("workout" + i.ToString() + "ex" + j.ToString(), arr2);
+
+                }
+
+            }
+
+            IsolatedStorageSettings.ApplicationSettings.Save();
         }
 
         // Code to execute when the application is closing (eg, user hit Back)
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
+            IsolatedStorageSettings.ApplicationSettings.Clear();
+            //Add number of Workouts
+            IsolatedStorageSettings.ApplicationSettings.Add("numOfWorkouts", App.ViewModel.Items.Count);
+            //Add each Workout
+            for (int i = 0; i < App.ViewModel.Items.Count; i++)
+            {
+                string[] arr = new string[] { App.ViewModel.Items[i].DateCreated, App.ViewModel.Items[i].Title, App.ViewModel.Items[i].Exercises.Count.ToString() };
+                IsolatedStorageSettings.ApplicationSettings.Add("workout" + i.ToString(), arr);
+                for (int j = 0; j < App.ViewModel.Items[i].Exercises.Count; j++)
+                {
+                    string[] arr2 = new string[] { App.ViewModel.Items[i].Exercises[j].Name, App.ViewModel.Items[i].Exercises[j].Reps.ToString(), App.ViewModel.Items[i].Exercises[j].Sets.ToString(), App.ViewModel.Items[i].Exercises[j].Weight.ToString() };
+                    IsolatedStorageSettings.ApplicationSettings.Add("workout" + i.ToString() + "ex" + j.ToString(), arr2);
+
+                }
+
+            }
+            //App.ViewModel.Items[App.index1].Exercises.Add(new Exercise() { ID = (App.ViewModel.Items[App.index1].Exercises.Count).ToString() });
+            IsolatedStorageSettings.ApplicationSettings.Save();
+            
         }
 
         // Code to execute if a navigation fails

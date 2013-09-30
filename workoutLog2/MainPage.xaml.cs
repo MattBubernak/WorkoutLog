@@ -67,6 +67,8 @@ namespace WorkoutLog2
             NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (App.ViewModel.Items.Count - 1).ToString(), UriKind.Relative));
         }
 
+        
+
         private void send_email(object sender, RoutedEventArgs e)
         {
             var task = new EmailComposeTask { To = "BirdBucketProductions@gmail.com" };
