@@ -71,3 +71,4 @@ C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\
 C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\vi-VN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\obj\Debug\StopWatch.g.cs

@@ -6,8 +6,9 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
     mc:Ignorable="d"
-    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    d:DataContext="{d:DesignData SampleDataModelSampleData.xaml}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -37,8 +38,10 @@
                     Margin="60,100,60,0" 
                     Click="Continue_Workout_Button_Click_1"
                     >Continue Workout</Button>
+                
+                
 
-            </Grid>
+                </Grid>
         </phone:PanoramaItem>
 
         <!--Panorama item two-->
@@ -61,7 +64,7 @@
         <!--Panorama item three-->
         <phone:PanoramaItem Header="About">
             <Grid>
-                <TextBlock Text="Version: .01&#x0a;Author: Matt Bubernak&#x0a;Version: .04" Height="483" VerticalAlignment="Bottom"></TextBlock>
+                <TextBlock Text="Version: .01&#x0a;Author: Matt Bubernak&#x0a;Version: .05" Height="483" VerticalAlignment="Bottom"></TextBlock>
                 <Button Margin="0,43,0,333" Click="send_email">Email BirdBucket Productions</Button>
                 <Image Height="75" Width="75" Source="/Images/bblogo.png" Margin="167,109,178,267"></Image>
             </Grid>
@@ -69,7 +72,21 @@
 
             <phone:PanoramaItem Header="Results">
                 <Grid>
-                 
+                    
+                    
+
+                     
+
+                    
+                </Grid>
+            </phone:PanoramaItem>
+            <phone:PanoramaItem Header="Timer" >
+                <Grid >
+                    <TextBlock Text="{Binding timer.TimeFromStart2}" FontSize="115" ></TextBlock>
+                    
+                    <Button Margin="0,151,0,200" Height="100" Click="start_timer">Start</Button>
+                    <Button Margin="0,351,0,0" Height="100" Click= "reset_timer">Reset</Button>
+                    <Button Margin="0,251,0,100" Height ="100" Click= "stop_timer">Stop</Button>
                 </Grid>
             </phone:PanoramaItem>
         </phone:Panorama>

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using WorkoutLog2.Resources;
 using System.IO.IsolatedStorage;
 using System.Diagnostics;
+using System.Threading;
 
 
 namespace WorkoutLog2.ViewModels
@@ -12,7 +13,13 @@ namespace WorkoutLog2.ViewModels
     {
         public MainViewModel()
         {
-            this.Items = new ObservableCollection<ItemViewModel>();
+            Items = new ObservableCollection<ItemViewModel>();
+            stopwatch = new Stopwatch();
+            timer = new TimerViewModel();
+            this._timer = new Timer(new TimerCallback((s) => this.FirePropertyChanged()),
+            null, 1000, 1000);
+            TestString = "nud"; 
+
         }
 
          
@@ -21,9 +28,40 @@ namespace WorkoutLog2.ViewModels
         /// A collection for ItemViewModel objects.
         /// </summary>
         public ObservableCollection<ItemViewModel> Items { get; private set; }
-        
+        public Stopwatch stopwatch { get;  set; }
+        public TimerViewModel timer { get; private set; }
+        public string teststring { get; private set; }
+        private Timer _timer;
+
+
 
         private string _sampleProperty = "Sample Runtime Property Value";
+
+        private void FirePropertyChanged()
+        {
+            teststring = teststring + "g";
+            NotifyPropertyChanged("TestString");
+        }
+
+        private string _teststring;
+
+        public string TestString
+        {
+            get
+            {
+                return _teststring;
+            }
+            set
+            {
+                if (value != _teststring)
+                {
+                    _teststring = value;
+                    NotifyPropertyChanged("TestString");
+                }
+            }
+        }
+
+
         /// <summary>
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding
         /// </summary>

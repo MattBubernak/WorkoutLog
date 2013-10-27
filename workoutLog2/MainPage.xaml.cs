@@ -23,6 +23,9 @@ namespace WorkoutLog2
             // Set the data context of the LongListSelector control to the sample data
             DataContext = App.ViewModel;
 
+            //float timer = 0; 
+            //Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -73,6 +76,30 @@ namespace WorkoutLog2
         {
             var task = new EmailComposeTask { To = "BirdBucketProductions@gmail.com" };
             task.Show();
+        }
+
+        
+
+        private void reset_timer(object sender, RoutedEventArgs e)
+        {
+            //Debug.WriteLine(App.viewModel.stopwatch.ElapsedMilliseconds);
+            App.viewModel.timer.Reset(); 
+        }
+
+        private void start_timer(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("about to start the stopwatch");
+
+            App.viewModel.timer.Start();
+            Debug.WriteLine("started the stopwatch");
+
+        }
+
+        private void stop_timer(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine(App.viewModel.stopwatch.ElapsedMilliseconds);
+
+           App.viewModel.timer.Stop(); 
         }
 
         // Sample code for building a localized ApplicationBar

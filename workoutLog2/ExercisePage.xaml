@@ -30,14 +30,14 @@
         <!--ContentPanel contains details text. Place additional content here-->
         <Grid x:Name="ContentPanel" Margin="12,0" Grid.Row="1">
             <TextBlock Name="nametext" Margin="10,10,219,4" Style="{StaticResource PhoneTextLargeStyle}">Exercise Name:</TextBlock>
-            <TextBox Name="inputBox2" Text="{Binding Name}" Margin="210,2,0,466" TextChanged="Update_Name" KeyDown="rename_keydown"></TextBox>
+            <TextBox Name="exerciseInputBox" Text="{Binding Name}" Margin="210,2,0,466" TextChanged="Update_Name" KeyDown="rename_keydown"></TextBox>
             <TextBlock Margin="10,67,219,-53" Style="{StaticResource PhoneTextLargeStyle}">Weight:</TextBlock>
-            <TextBox Name="inputBox3" Text="{Binding Weight}" Margin="210,56,0,411" TextChanged="Update_Weight" ></TextBox>
+            <TextBox Name="weightInputBox" Text="{Binding Weight}" Margin="210,56,0,411" TextChanged="Update_Weight" ></TextBox>
             
             <TextBlock Margin="10,127,219,-113" Style="{StaticResource PhoneTextLargeStyle}">Reps:</TextBlock>
-            <TextBox Name="inputBox4" Text="{Binding Sets}" Margin="97,190,246,275" ></TextBox>
+            <TextBox Name="setsInputBox" Text="{Binding Sets}" Margin="97,190,246,275"  ></TextBox>
             <TextBlock Margin="10,190,359,-176" Style="{StaticResource PhoneTextLargeStyle}">Sets:</TextBlock>
-            <TextBox Name="inputBox5" Text="{Binding Reps}" Margin="97,122,246,347" ></TextBox>
+            <TextBox Name="repsInputBox" Text="{Binding Reps}" Margin="97,122,246,347" ></TextBox>
 
           <Button Name="IncreaseReps" Margin="215,120,170,347" Click ="Increase_Reps" >+</Button>
           <Button Name="DecreaseReps" Margin="281,120,104,347" Click ="Decrease_Reps">-</Button>

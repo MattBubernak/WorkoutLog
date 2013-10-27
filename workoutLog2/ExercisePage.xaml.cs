@@ -34,7 +34,7 @@ namespace WorkoutLog2
             if (DataContext == null)
             {
                 string selectedIndex = "";
-               // int index1 =  NavigationContext.QueryString.TryGetValue("index", out index1)
+                // int index1 =  NavigationContext.QueryString.TryGetValue("index", out index1)
                 string index1string;
                 int exindex = 0;
                 if (NavigationContext.QueryString.TryGetValue("index", out index1string))
@@ -57,43 +57,51 @@ namespace WorkoutLog2
 
         private void Increase_Reps(object sender, EventArgs e)
         {
+            App.ViewModel.Items[App.index1].Exercises[App.index2].Reps = int.Parse(this.repsInputBox.Text);
 
             App.ViewModel.Items[App.index1].Exercises[App.index2].Reps++;
 
         }
         private void Decrease_Reps(object sender, EventArgs e)
         {
+            App.ViewModel.Items[App.index1].Exercises[App.index2].Reps = int.Parse(this.repsInputBox.Text);
+
             App.ViewModel.Items[App.index1].Exercises[App.index2].Reps--;
 
         }
 
         private void Increase_Sets(object sender, EventArgs e)
         {
-            Debug.WriteLine("I was called");
+            //Debug.WriteLine("I was called");
+            App.ViewModel.Items[App.index1].Exercises[App.index2].Sets = int.Parse(this.setsInputBox.Text);
 
             App.ViewModel.Items[App.index1].Exercises[App.index2].Sets++;
 
         }
         private void Decrease_Sets(object sender, EventArgs e)
         {
+            App.ViewModel.Items[App.index1].Exercises[App.index2].Sets = int.Parse(this.setsInputBox.Text);
+
             App.ViewModel.Items[App.index1].Exercises[App.index2].Sets--;
 
         }
         private void Update_Name(object sender, EventArgs e)
         {
-            App.ViewModel.Items[App.index1].Exercises[App.index2].Name = inputBox2.Text;
+            App.ViewModel.Items[App.index1].Exercises[App.index2].Name = exerciseInputBox.Text;
 
         }
         private void Update_Weight(object sender, EventArgs e)
         {
-            if (inputBox3.Text != "")
+            if (weightInputBox.Text != "")
             {
-                App.ViewModel.Items[App.index1].Exercises[App.index2].Weight = int.Parse(inputBox3.Text);
+                App.ViewModel.Items[App.index1].Exercises[App.index2].Weight = int.Parse(weightInputBox.Text);
             }
         }
 
         private void Confirm_Activity(object sender, EventArgs e)
         {
+            App.ViewModel.Items[App.index1].Exercises[App.index2].Reps = int.Parse(this.repsInputBox.Text);
+            App.ViewModel.Items[App.index1].Exercises[App.index2].Sets = int.Parse(this.setsInputBox.Text);
             NavigationService.GoBack();
         }
 
@@ -107,7 +115,7 @@ namespace WorkoutLog2
                 App.ViewModel.Items[App.index1].Exercises[i].ID = (Convert.ToInt32(App.ViewModel.Items[App.index1].Exercises[i].ID) - 1).ToString();
             }
             //NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
-            NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + App.index1, UriKind.Relative));     
+            NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + App.index1, UriKind.Relative));
         }
 
         private void rename_keydown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -117,13 +125,15 @@ namespace WorkoutLog2
                 this.Focus();
             }
         }
-       
-       
 
         
 
-        
 
-      
+
+
+
+
+
+
     }
 }

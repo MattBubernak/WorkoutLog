@@ -18,7 +18,9 @@ namespace WorkoutLog2
 
 
         public static int index1;
-        public static int index2; 
+        public static int index2;
+        public static float timer = 0;
+        //blic static Stopwatch stopwatch = new System.Diagnostics.Stopwatch(); 
         /// <summary>
         /// A static ViewModel used by the views to bind against.
         /// </summary>
