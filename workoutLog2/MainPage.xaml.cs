@@ -83,7 +83,11 @@ namespace WorkoutLog2
         private void reset_timer(object sender, RoutedEventArgs e)
         {
             //Debug.WriteLine(App.viewModel.stopwatch.ElapsedMilliseconds);
-            App.viewModel.timer.Reset(); 
+            App.viewModel.timer.Reset();
+            ExerciseResult testresult = new ExerciseResult();
+            Debug.WriteLine(testresult.Name);
+            App.recordBook.Records.Add("test", testresult);
+            Debug.WriteLine("Attempting to print a record" + App.recordBook.Records["test"].Name);
         }
 
         private void start_timer(object sender, RoutedEventArgs e)
@@ -100,6 +104,11 @@ namespace WorkoutLog2
             Debug.WriteLine(App.viewModel.stopwatch.ElapsedMilliseconds);
 
            App.viewModel.timer.Stop(); 
+        }
+
+        private void ResultsLongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
         // Sample code for building a localized ApplicationBar

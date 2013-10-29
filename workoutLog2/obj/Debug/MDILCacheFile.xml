@@ -1,5 +1,5 @@
-﻿<xapCache source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\WorkoutLog2_Debug_AnyCPU.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="10/27/2013 5:28:13 PM">
-  <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\obj\Debug\WorkoutLog2.dll" archivePath="WorkoutLog2.dll" lastWriteTime="10/27/2013 5:28:12 PM" />
+﻿<xapCache source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\WorkoutLog2_Debug_AnyCPU.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="10/27/2013 10:57:33 PM">
+  <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\obj\Debug\WorkoutLog2.dll" archivePath="WorkoutLog2.dll" lastWriteTime="10/27/2013 10:57:32 PM" />
   <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="9/1/2013 9:58:42 PM" />
   <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="9/1/2013 9:58:42 PM" />
   <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="9/1/2013 9:58:42 PM" />
@@ -19,7 +19,7 @@
   <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="9/24/2013 12:40:39 AM" />
   <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="9/24/2013 12:40:39 AM" />
   <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="9/24/2013 12:40:37 AM" />
-  <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="9/29/2013 10:20:44 AM" />
+  <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="10/27/2013 6:11:14 PM" />
   <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="9/2/2013 1:11:24 AM" />
   <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="9/2/2013 1:14:14 AM" />
   <file source="C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="9/24/2013 12:40:35 AM" />

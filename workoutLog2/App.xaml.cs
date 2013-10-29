@@ -17,6 +17,9 @@ namespace WorkoutLog2
         public static MainViewModel viewModel = null;
 
 
+        public static RecordBook recordBook = new RecordBook();
+
+
         public static int index1;
         public static int index2;
         public static float timer = 0;
@@ -43,6 +46,27 @@ namespace WorkoutLog2
             set
             {
                 ViewModel = value;
+            }
+        }
+
+        public static RecordBook RecordBook
+        {
+
+            get
+            {
+                // Delay creation of the view model until necessary
+
+                if (recordBook == null)
+                {
+                    recordBook = new RecordBook();
+                }
+
+                return recordBook;
+            }
+
+            set
+            {
+                RecordBook = value;
             }
         }
 

@@ -72,12 +72,20 @@
 
             <phone:PanoramaItem Header="Results">
                 <Grid>
-                    
-                    
+                    <phone:LongListSelector x:Name="ResultsLongListSelector" Margin="0,0,-12,0" ItemsSource="{Binding Exercises}" SelectionChanged="ResultsLongListSelector_SelectionChanged">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,0,0,17">
+                                    <TextBlock Text="{Binding}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
 
-                     
 
-                    
+
+
+
                 </Grid>
             </phone:PanoramaItem>
             <phone:PanoramaItem Header="Timer" >

@@ -19,7 +19,6 @@ c:\users\matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\obj\
 c:\users\matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\obj\Debug\XapCacheFile.xml
 c:\users\matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\obj\Debug\CurrentWorkout.g.cs
 C:\Users\Matt\Documents\Visual Studio 2012\Projects\WorkoutLog2\WorkoutLog2\obj\Debug\ExercisePage.g.cs
-C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\obj\Debug\WorkoutLog2.csprojResolveAssemblyReference.cache
 C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll
 C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\ar-SA\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\az-Latn-AZ\Microsoft.Phone.Controls.Toolkit.resources.dll
@@ -72,3 +71,5 @@ C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\
 C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\obj\Debug\StopWatch.g.cs
+C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\obj\Debug\WorkoutLog2.csprojResolveAssemblyReference.cache
+C:\Users\Matt\documents\visual studio 2012\Projects\WorkoutLog2\WorkoutLog2\obj\Debug\ResultsPage.g.cs

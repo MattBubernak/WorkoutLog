@@ -14,19 +14,20 @@ namespace WorkoutLog2.ViewModels
         public MainViewModel()
         {
             Items = new ObservableCollection<ItemViewModel>();
+            Exercises = new ObservableCollection<string>();
             stopwatch = new Stopwatch();
             timer = new TimerViewModel();
             this._timer = new Timer(new TimerCallback((s) => this.FirePropertyChanged()),
             null, 1000, 1000);
-            TestString = "nud"; 
 
         }
 
-         
+
 
         /// <summary>
         /// A collection for ItemViewModel objects.
         /// </summary>
+        public ObservableCollection<String> Exercises { get; private set; }
         public ObservableCollection<ItemViewModel> Items { get; private set; }
         public Stopwatch stopwatch { get;  set; }
         public TimerViewModel timer { get; private set; }
@@ -106,6 +107,7 @@ namespace WorkoutLog2.ViewModels
         /// </summary>
         public void LoadData()
         {
+
             Debug.WriteLine("Loading Data!!");
             // Sample data; replace with real data
           //this.Items.Add(new ItemViewModel() { ID = "0", Title = "Arms Workout", DateCreated = "11/12/13", LineThree = "Facilisi faucibus habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis senectus sociosqu" });
@@ -133,6 +135,8 @@ namespace WorkoutLog2.ViewModels
                    {
                        string[] arr2 = (string[])IsolatedStorageSettings.ApplicationSettings["workout" + i.ToString() + "ex" + j.ToString()];
                        this.Items[i].Exercises.Add(new Exercise() { ID = j.ToString(), Name = arr2[0], Reps = Convert.ToInt32(arr2[1]), Sets = Convert.ToInt32(arr2[2]), Weight = Convert.ToInt32(arr2[3]) });
+                       if (!App.viewModel.Exercises.Contains(arr2[0]))
+                            App.viewModel.Exercises.Add(arr2[0]);
                    }
 
                 }
@@ -140,6 +144,9 @@ namespace WorkoutLog2.ViewModels
             }
              
             this.IsDataLoaded = true;
+
+         
+
              
         }
 

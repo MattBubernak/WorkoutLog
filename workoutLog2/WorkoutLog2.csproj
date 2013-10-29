@@ -113,12 +113,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResultsPage.xaml.cs">
+      <DependentUpon>ResultsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StopWatch.xaml.cs">
       <DependentUpon>StopWatch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ExerciseResult.cs" />
     <Compile Include="ViewModels\Exercise.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\RecordBook.cs" />
     <Compile Include="ViewModels\TimerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +148,10 @@
       <SubType>Designer</SubType>
     </DesignData>
     <Page Include="CurrentWorkout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResultsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

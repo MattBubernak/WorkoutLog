@@ -88,6 +88,7 @@ namespace WorkoutLog2
         private void Update_Name(object sender, EventArgs e)
         {
             App.ViewModel.Items[App.index1].Exercises[App.index2].Name = exerciseInputBox.Text;
+            
 
         }
         private void Update_Weight(object sender, EventArgs e)
@@ -102,6 +103,8 @@ namespace WorkoutLog2
         {
             App.ViewModel.Items[App.index1].Exercises[App.index2].Reps = int.Parse(this.repsInputBox.Text);
             App.ViewModel.Items[App.index1].Exercises[App.index2].Sets = int.Parse(this.setsInputBox.Text);
+            if (!App.viewModel.Exercises.Contains(exerciseInputBox.Text))
+                App.viewModel.Exercises.Add(exerciseInputBox.Text);
             NavigationService.GoBack();
         }
 
